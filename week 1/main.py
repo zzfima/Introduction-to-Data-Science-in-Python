@@ -1,6 +1,8 @@
 import csv
+import datetime as dt
+import time
 
-with open("mpg.csv") as csvFile:
+with open(r"week 1\mpg.csv") as csvFile:
     dr = csv.DictReader(csvFile)
     mpg = list(dr)
 
@@ -53,3 +55,21 @@ for k in classes_dict:
     avg_cls_hwy.append((k, sum(int(c) for c in classes_dict[k]) / len(classes_dict[k])))
 
 print(avg_cls_hwy)
+
+dtnow = dt.datetime.fromtimestamp(time.time())
+print(dtnow)
+print(dtnow.year)
+
+quarantine_at_home = 14
+day_i_was_in_unhappy_bus = dt.datetime.fromtimestamp(time.time())
+delta = dt.timedelta(days=quarantine_at_home)
+print(f'I will back to work at {(day_i_was_in_unhappy_bus + delta).strftime("%d-%m-%Y")}')
+
+store1 = [10, 11, 12, 2]
+store2 = [9, 11, 12, 1]
+
+cheapest = map(min, store1, store2)
+print(list(cheapest))
+
+myfunc = lambda a, b, c: a + b + c
+print(myfunc(1, 1, 2))
