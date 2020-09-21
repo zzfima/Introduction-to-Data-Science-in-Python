@@ -73,3 +73,26 @@ print(list(cheapest))
 
 myfunc = lambda a, b, c: a + b + c
 print(myfunc(1, 1, 2))
+
+
+def times_tables():
+    lst = []
+    for i in range(10):
+        for j in range(10):
+            lst.append(i * j)
+    return lst
+
+
+print(times_tables())
+
+print([j * i for i in range(10) for j in range(10)])
+
+lowercase = 'abcdefghijklmnopqrstuvwxyz'
+digits = '0123456789'
+
+answer = [a + b + c + d
+          for a in lowercase
+          for b in lowercase
+          for c in digits
+          for d in digits][0:10]
+print(answer)
