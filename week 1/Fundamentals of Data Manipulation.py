@@ -59,3 +59,13 @@ print(mask)
 modified_array = array - mask
 modified_array *= -1
 modified_array = modified_array.astype(np.uint8)
+
+csv_mpg = np.genfromtxt('mpg.csv', skip_header=1, delimiter=',', dtype=str)
+print(csv_mpg)
+
+csv_winequality = np.genfromtxt('winequality-red.csv', skip_header=1, delimiter=';', dtype=float)
+print(csv_winequality.shape)
+print(f'alc, quality\n {csv_winequality[:, (-2, -1)]}')
+print(csv_winequality[:, [1]].mean())
+print(csv_winequality[:, 0:1])
+print(csv_winequality['quality'])
