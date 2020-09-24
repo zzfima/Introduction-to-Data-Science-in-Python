@@ -30,3 +30,11 @@ print("Find all [edit]\n: ", re.findall("[\w\s]+\[edit\]", ferpa_txt))
 
 for title in re.findall("[\w\s]+\[edit\]", ferpa_txt):
     print(re.split("\[edit\]", title)[0])
+
+
+import numpy as np
+a = np.array([[1, 2.8, 1.6], [2, 3, 4]])
+
+
+
+indx = np.find(2)
