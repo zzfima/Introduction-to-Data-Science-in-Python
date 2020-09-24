@@ -23,18 +23,19 @@ with open('ferpa.txt', "r") as ferpa:
 print("Find all string.[number]:", re.findall("[a-zA-Z]{1,100}[.]\[[0-9]+\]", ferpa_txt))
 print("Find all string[number]:", re.findall("[a-zA-Z]{1,100}\[[0-9]+\]", ferpa_txt))
 
-print("Find all [edit]\n: ", re.findall("[a-zA-Z]{1,100}\[edit\]", ferpa_txt))
-print("Find all [edit]\n: ", re.findall("[\w]{1,100}\[edit\]", ferpa_txt))
-print("Find all [edit]\n: ", re.findall("[\w]+\[edit\]", ferpa_txt))
-print("Find all [edit]\n: ", re.findall("[\w\s]+\[edit\]", ferpa_txt))
+print("Find all [edit]: ", re.findall("[a-zA-Z]{1,100}\[edit\]", ferpa_txt))
+print("Find all [edit]: ", re.findall("[\w]{1,100}\[edit\]", ferpa_txt))
+print("Find all [edit]: ", re.findall("[\w]+\[edit\]", ferpa_txt))
+print("Find all [edit]: ", re.findall("[\w\s]+\[edit\]", ferpa_txt))
 
 for title in re.findall("[\w\s]+\[edit\]", ferpa_txt):
     print(re.split("\[edit\]", title)[0])
 
+for item in re.finditer("([\w\s]+)(\[edit\])", ferpa_txt):
+    print(item.groups())
 
-import numpy as np
-a = np.array([[1, 2.8, 1.6], [2, 3, 4]])
+for item in re.finditer("([\w\s]+)(\[edit\])", ferpa_txt):
+    print(item.group(1))
 
-
-
-indx = np.find(2)
+for item in re.finditer("(?P<title>[\w\s]+)(?P<edit_link>\[edit\])", ferpa_txt):
+    print(item.groupdict())
