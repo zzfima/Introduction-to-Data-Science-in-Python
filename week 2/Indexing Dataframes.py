@@ -6,3 +6,5 @@ df["SN"] = df.index
 print(df.head())
 df = df.set_index('year')
 print(df.head())
+df = df.set_index(['manufacturer', 'model'])
+print(df)
