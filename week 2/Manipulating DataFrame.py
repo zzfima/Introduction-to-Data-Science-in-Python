@@ -1,3 +1,5 @@
+import re
+
 import pandas as pd
 
 
@@ -9,5 +11,9 @@ def split_name(row):
 
 df = pd.read_csv('us_presidents.csv', index_col=0)
 print(df.head())
-df = df.apply(split_name, axis='columns')
-print(df.head())
+print(df.apply(split_name, axis='columns').head())
+pattern = "(P<Fist>^[\w]*)(?:.*)(P<Last>[\w]*$)"
+print(df['president'].str.extract(pattern).head())
+
+for i in re.finditer(r"(^[\w]*)(?:.*)([\w]*$)", df['president']):
+    print(i)
